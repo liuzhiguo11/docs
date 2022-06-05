@@ -10,21 +10,6 @@ steps:
     hugo_version: "0.74.3"
     config: config.yaml
 
-- name: publish
-  image: plugins/netlify
-  settings:
-    path: ./public
-    prod: true
-    site:
-      from_secret: netlify_site_id
-    token:
-      from_secret: netlify_token
-  when:
-    event:
-    - push
-    branch:
-    - master
-
 trigger:
   event:
   - push
